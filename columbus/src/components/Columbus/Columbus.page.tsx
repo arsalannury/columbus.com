@@ -6,13 +6,13 @@ import './columbus.css'
 const ColumbusPage: React.FC = () => {
   return (
     <>
-    <Container fluid className='columbus_container'>
-         <Row>
-            <Col xl="6" sm="12" xs="12">
-               
+    <Container fluid className='columbus_container '>
+         <Row className='columbus_row'>
+            <Col xl={6} sm={12} xs={12}>
+               f
             </Col>
-            <Col xl="6" sm="12" xs="12">
-
+            <Col xl={6} sm={12} xs={12}>
+               f
             </Col>
          </Row>
     </Container>
