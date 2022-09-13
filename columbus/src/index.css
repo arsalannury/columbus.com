@@ -11,9 +11,38 @@
   src: url("./fonts/Kanit-SemiBold.ttf");
 }
 
-#root , body {
+#root,
+body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   color: #fff;
+  position: relative;
+}
+#root::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
+  opacity: 0.1;
+  background-color: rgba(0, 0, 0, 0.9);
+  animation: move 10s ease-in-out alternate infinite;
+  /* animation-delay: 10s; */
+}
+
+@keyframes move {
+  from {
+    right: 100%;
+    top: 0;
+    transform: rotateZ(0deg) perspective(1000px);
+  }
+  to {
+    left: 100%;
+    top: 100%;
+    transform: rotateZ(360deg) perspective(200px);
+  }
 }
