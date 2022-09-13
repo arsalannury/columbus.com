@@ -1,11 +1,32 @@
 .columbus_container {
-    background-color: #4F3472;
-    width: 100%;
-    height: 100%;
-  
+  background-color: #4f3472;
+  width: 100%;
+  height: 100%;
 }
 
 .columbus_row {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.introduce_setction {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.introduce_setction .main_title{
+    opacity: .7;
+}
+
+.introduce_setction .main_title::first-letter {
+    font-size: 1.4em;
+}
+.main_title + p {
+  font-size: .6em;
+  font-weight: 100;
+  font-style: italic;
 }

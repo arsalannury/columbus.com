@@ -8,11 +8,15 @@ const ColumbusPage: React.FC = () => {
     <>
     <Container fluid className='columbus_container '>
          <Row className='columbus_row'>
-            <Col xl={6} sm={12} xs={12}>
-               f
+            <Col lg={6}>
+               <section className='introduce_setction'>
+                  <h1>Columbus.com</h1>
+                  <p className='main_title'>search about all countries</p>
+                  <p>copyright 2022-2023</p>
+               </section>
             </Col>
-            <Col xl={6} sm={12} xs={12}>
-               f
+            <Col lg={6}>
+               ddd
             </Col>
          </Row>
     </Container>
