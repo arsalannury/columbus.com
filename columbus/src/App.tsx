@@ -4,7 +4,9 @@ import ColumbusPage from "./components/Columbus/Columbus.page";
 function App() {
   return (
     <>
-      <ColumbusPage />
+      <React.Profiler id="columbus" onRender={(e) => console.log(e)}>
+        <ColumbusPage />
+      </React.Profiler>
     </>
   );
 }

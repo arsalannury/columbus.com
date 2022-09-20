@@ -15,10 +15,11 @@
 body {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   color: #fff;
   position: relative;
   z-index: 100;
+  background-color: #4f3472;
 }
 #root::before {
   content: "";
