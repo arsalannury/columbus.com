@@ -1,14 +1,20 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import ColumbusPage from "./components/Columbus/Columbus.page";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+const client = new QueryClient();
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
-      <React.Profiler id="columbus" onRender={(e) => console.log(e)}>
-        <ColumbusPage />
-      </React.Profiler>
+      <QueryClientProvider client={client}>
+        <React.Profiler id="columbus" onRender={(e) => console.log(e)}>
+          <ColumbusPage />
+        </React.Profiler>
+        <ReactQueryDevtools />
+      </QueryClientProvider>
     </>
   );
-}
+};
 
 export default App;
