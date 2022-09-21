@@ -1,8 +1,8 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import ColumbusPage from "./components/Columbus/Columbus.page";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { QueryClientProviderPropsWithChildren } from "./components/Interface/QueryClientProviderInterface";
+import { QueryClientProviderPropsWithChildren } from "./Interface/QueryClientProviderInterface";
 
 const client = new QueryClient();
 const Provider: React.FC<QueryClientProviderPropsWithChildren> =

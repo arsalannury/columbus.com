@@ -4,11 +4,13 @@ import { Row, Col } from "react-bootstrap";
 import "./columbus.css";
 import CardPage from "../Card/Card.page";
 import { useAllData } from "../../hooks/fetchAllData";
-import {Spinner} from 'react-bootstrap';
+import { Spinner } from "react-bootstrap";
+import { AxiosResponse } from "axios";
 
 const ColumbusPage: React.FC = () => {
   const { data, isError, isLoading, isFetching, error } = useAllData();
   const errorBoundry = error as ReactNode;
+  const dataType = data as AxiosResponse;
 
   if (isError) {
     return (
@@ -16,11 +18,16 @@ const ColumbusPage: React.FC = () => {
         <h1>{errorBoundry}</h1>
         <p>check your internet connection</p>
       </>
-    )
+    );
   }
+  console.log(data);
 
-  if(isLoading) {
-   return <Spinner animation="grow" variant="light" /> 
+  if (isLoading) {
+    return (
+      <div className="d-flex align-items-center justify-content-center w-100 h-100">
+        <Spinner animation="border" variant="light" />
+      </div>
+    );
   }
 
   return (
@@ -34,8 +41,18 @@ const ColumbusPage: React.FC = () => {
               <p>copyright 2022-2023</p>
             </section>
           </Col>
-          <Col lg={6}>
-            <CardPage />
+          <Col
+            lg={6}
+            style={{ overflowY: "scroll", height: "100%", zIndex: "1" }}
+          >
+            {dataType.data.map((country: any, index: number) => (
+              <CardPage
+                key={index}
+                coatOfArms={country.coatOfArms}
+                officialName={country.name.official}
+                bul={country.name}
+              />
+            ))}
           </Col>
         </Row>
       </Container>
@@ -43,4 +60,4 @@ const ColumbusPage: React.FC = () => {
   );
 };
 
-export default ColumbusPage;
+export default React.memo(ColumbusPage);

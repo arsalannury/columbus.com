@@ -1,3 +1,13 @@
 .card-main {
     height: 300px;
 }
+.card-title {
+    font-size: .8em;
+}
+
+.card-img {
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    margin: auto;
+}
