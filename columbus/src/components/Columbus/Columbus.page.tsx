@@ -5,22 +5,23 @@ import "./columbus.css";
 import CardPage from "../Card/Card.page";
 import { useAllData } from "../../hooks/fetchAllData";
 import { Spinner } from "react-bootstrap";
-import { AxiosResponse } from "axios";
+import { AxiosError, AxiosResponse } from "axios";
 
 const ColumbusPage: React.FC = () => {
   const { data, isError, isLoading, isFetching, error } = useAllData();
-  const errorBoundry = error as ReactNode;
+  const errorBoundry = error as AxiosError;
   const dataType = data as AxiosResponse;
 
   if (isError) {
     return (
       <>
-        <h1>{errorBoundry}</h1>
+        <h1>{errorBoundry.message}</h1>
         <p>check your internet connection</p>
       </>
     );
   }
   console.log(data);
+  
 
   if (isLoading) {
     return (
@@ -50,7 +51,8 @@ const ColumbusPage: React.FC = () => {
                 key={index}
                 coatOfArms={country.coatOfArms}
                 officialName={country.name.official}
-                bul={country.name}
+                bul={country.name.nativeName} 
+                languages={country.languages}
               />
             ))}
           </Col>
