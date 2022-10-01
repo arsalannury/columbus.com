@@ -3,7 +3,13 @@ import { Row, Col, Card } from "react-bootstrap";
 import { CardProps } from "../../Interface/CardInterface";
 import "./card.css";
 
-const CardPage: React.FC<CardProps> = ({ coatOfArms, officialName, bul }) => {
+const CardPage: React.FC<CardProps> = ({
+  coatOfArms,
+  officialName,
+  bul,
+  languages,
+  maps,
+}) => {
   const bulArray: any[] = bul && Object.entries(bul);
   // console.log(bulArray);
 
@@ -20,6 +26,15 @@ const CardPage: React.FC<CardProps> = ({ coatOfArms, officialName, bul }) => {
             />
             <Card.Body>
               <Card.Title className="text-muted">{officialName}</Card.Title>
+              <div className="d-flex align-items-end justify-content-end">
+                <a target="_blank" href={maps.googleMaps}>
+                  <img
+                    className="maps-icon"
+                    src="map-icon.png"
+                    alt="icon-map-png"
+                  />
+                </a>
+              </div>
               <>
                 {/* {bulArray !== undefined &&
                   bulArray.map((array: any[], index: number) => {

@@ -53,6 +53,7 @@ const ColumbusPage: React.FC = () => {
                 officialName={country.name.official}
                 bul={country.name.nativeName} 
                 languages={country.languages}
+                maps={country.maps}
               />
             ))}
           </Col>
