@@ -30,7 +30,9 @@ const CardPage: React.FC<CardProps> = ({
             />
             <Card.Body>
               <Card.Title className="text-muted">{officialName}</Card.Title>
-              <Card.Title className="text-muted">{translations.per?.official}</Card.Title>
+              <Card.Title className="text-muted">
+                {translations.per?.official}
+              </Card.Title>
               <div className="d-flex align-items-end justify-content-end mb-2">
                 <a target="_blank" href={maps.googleMaps}>
                   <img

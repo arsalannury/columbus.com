@@ -1,6 +1,6 @@
 .card-main {
     height: 300px;
-    transition: all .5s ease-out;
+    transition: all .2s ease-out;
 }
 
 .card-main:hover {
