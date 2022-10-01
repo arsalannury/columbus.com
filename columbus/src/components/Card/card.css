@@ -1,6 +1,13 @@
 .card-main {
     height: 300px;
+    transition: all .5s ease-out;
 }
+
+.card-main:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 5px #000;
+}
+
 .card-title {
     font-size: .8em;
 }
