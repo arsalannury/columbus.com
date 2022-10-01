@@ -8,12 +8,16 @@ export abstract class Helper {
     switch (toString.length) {
       case 4:
         return this.CheckParameterOfSortNumber(toString, 1);
+      case 5:
+        return this.CheckParameterOfSortNumber(toString, 2);  
       case 6:
         return this.CheckParameterOfSortNumber(toString, 3);
       case 7:
         return this.CheckParameterOfSortNumber(toString, 1, 5);
       case 8:
         return this.CheckParameterOfSortNumber(toString, 2, 6);
+      case 9:
+        return this.CheckParameterOfSortNumber(toString, 3, 7);  
     }
   };
 
