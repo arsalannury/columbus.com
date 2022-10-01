@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Card } from "react-bootstrap";
+import { ConvertBooleanToYesNo } from "../../helper/helper";
 import { CardProps } from "../../Interface/CardInterface";
 import "./card.css";
 
@@ -9,24 +10,26 @@ const CardPage: React.FC<CardProps> = ({
   bul,
   languages,
   maps,
+  flags,
+  independent,
 }) => {
   const bulArray: any[] = bul && Object.entries(bul);
-  // console.log(bulArray);
+  const languageArray: any[] = languages && Object.entries(languages);
 
   return (
     <>
       <Row xs={1} md={2} className="g-4">
         <Col className="w-100">
-          <Card className="flex-row mt-3 card-main rounded-0">
+          <Card className="flex-row mt-3 card-main rounded-0 overflow-hidden">
             <Card.Img
               variant="top"
-              src={coatOfArms.png}
+              src={coatOfArms.png ? coatOfArms.png : flags?.png}
               loading="lazy"
               className="card-img"
             />
             <Card.Body>
               <Card.Title className="text-muted">{officialName}</Card.Title>
-              <div className="d-flex align-items-end justify-content-end">
+              <div className="d-flex align-items-end justify-content-end mb-2">
                 <a target="_blank" href={maps.googleMaps}>
                   <img
                     className="maps-icon"
@@ -34,6 +37,26 @@ const CardPage: React.FC<CardProps> = ({
                     alt="icon-map-png"
                   />
                 </a>
+              </div>
+              <div>
+                <i className="bi bi-translate text-dark"></i>
+                {languageArray !== undefined &&
+                  languageArray.map((array: any[], index: number) => {
+                    return (
+                      <span
+                        key={index}
+                        className="text-muted language-parag px-2"
+                      >
+                        {array[1]}
+                      </span>
+                    );
+                  })}
+              </div>
+              <div>
+                <p className="text-muted independent-parag">
+                  independent: {ConvertBooleanToYesNo(independent)}
+                </p>
+                <p className="text-muted"></p>
               </div>
               <>
                 {/* {bulArray !== undefined &&

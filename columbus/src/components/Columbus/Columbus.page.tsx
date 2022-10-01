@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import Container from "react-bootstrap/esm/Container";
 import { Row, Col } from "react-bootstrap";
 import "./columbus.css";
@@ -54,6 +54,8 @@ const ColumbusPage: React.FC = () => {
                 bul={country.name.nativeName} 
                 languages={country.languages}
                 maps={country.maps}
+                flags={country.flags}
+                independent={country.independent}
               />
             ))}
           </Col>
