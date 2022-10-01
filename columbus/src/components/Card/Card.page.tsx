@@ -13,6 +13,7 @@ const CardPage: React.FC<CardProps> = ({
   flags,
   independent,
   translations,
+  population
 }) => {
   const bulArray: any[] = bul && Object.entries(bul);
   const languageArray: any[] = languages && Object.entries(languages);
@@ -60,7 +61,7 @@ const CardPage: React.FC<CardProps> = ({
                 <p className="text-muted independent-parag">
                   independent: {ConvertBooleanToYesNo(independent)}
                 </p>
-                <p className="text-muted"></p>
+                <p className="text-muted independent-parag">population: {population}</p>
               </div>
               <>
                 {/* {bulArray !== undefined &&

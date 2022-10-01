@@ -57,6 +57,7 @@ const ColumbusPage: React.FC = () => {
                 flags={country.flags}
                 independent={country.independent}
                 translations={country.translations}
+                population={country.population}
               />
             ))}
           </Col>
