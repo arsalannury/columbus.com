@@ -12,6 +12,7 @@ const CardPage: React.FC<CardProps> = ({
   maps,
   flags,
   independent,
+  translations,
 }) => {
   const bulArray: any[] = bul && Object.entries(bul);
   const languageArray: any[] = languages && Object.entries(languages);
@@ -29,6 +30,7 @@ const CardPage: React.FC<CardProps> = ({
             />
             <Card.Body>
               <Card.Title className="text-muted">{officialName}</Card.Title>
+              <Card.Title className="text-muted">{translations.per?.official}</Card.Title>
               <div className="d-flex align-items-end justify-content-end mb-2">
                 <a target="_blank" href={maps.googleMaps}>
                   <img

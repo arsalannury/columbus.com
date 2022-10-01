@@ -6,4 +6,5 @@ export interface CardProps {
   languages: any;
   maps: { googleMaps: string };
   independent: boolean;
+  translations: { per: { official: string } };
 }

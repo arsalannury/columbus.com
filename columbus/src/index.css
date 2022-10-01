@@ -3,12 +3,17 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 16px;
-  font-family: Kanit;
+  font-family: Kanit , Vazir;
 }
 
 @font-face {
   font-family: Kanit;
   src: url("./fonts/Kanit-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: Vazir;
+  src: url('./fonts/Vazir-FD-WOL.ttf');
 }
 
 #root,
