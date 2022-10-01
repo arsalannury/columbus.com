@@ -1,11 +1,11 @@
 .card-main {
     height: 300px;
     transition: all .2s ease-out;
+    box-shadow: inset 0 0 10px #666;
 }
 
 .card-main:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 5px #000;
 }
 
 .card-title {

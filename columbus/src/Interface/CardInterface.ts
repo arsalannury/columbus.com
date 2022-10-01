@@ -7,5 +7,5 @@ export interface CardProps {
   maps: { googleMaps: string };
   independent: boolean;
   translations: { per: { official: string } };
-  population: number;
+  population: number | string;
 }
