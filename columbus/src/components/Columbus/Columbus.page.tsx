@@ -32,9 +32,7 @@ const ColumbusPage: React.FC = () => {
 
   return (
     <>
-      <video className="video-background" muted loop autoPlay>
-        <source src="planet.mp4" type="video/mp4" />
-      </video>
+     
       <Container fluid className="columbus_container ">
         <Row className="columbus_row">
           <Col lg={6}>
