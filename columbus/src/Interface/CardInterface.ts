@@ -8,4 +8,5 @@ export interface CardProps {
   independent: boolean;
   translations: { per: { official: string } };
   population: number | string;
+  region: string;
 }

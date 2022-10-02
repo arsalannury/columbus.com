@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Card } from "react-bootstrap";
+import { Row, Col, Card, Badge } from "react-bootstrap";
 import { Helper } from "../../helper/helper";
 import { CardProps } from "../../Interface/CardInterface";
 import "./card.css";
@@ -14,6 +14,7 @@ const CardPage: React.FC<CardProps> = ({
   independent,
   translations,
   population,
+  region,
 }) => {
   const bulArray: any[] = bul && Object.entries(bul);
   const languageArray: any[] = languages && Object.entries(languages);
@@ -58,8 +59,15 @@ const CardPage: React.FC<CardProps> = ({
                   })}
               </div>
               <div>
+                <p className="text-muted language-parag mt-2">
+                  <i style={{ marginRight: "7px" }} className="bi bi-globe"></i>
+                  {region}
+                </p>
                 <p className="text-muted independent-parag">
-                  independent: {Helper.ConvertBooleanToYesNo(independent)}
+                  independent:{" "}
+                  <Badge pill bg={independent ? "success" : "danger"}>
+                    {Helper.ConvertBooleanToYesNo(independent)}
+                  </Badge>
                 </p>
                 <p className="text-muted independent-parag">
                   population: {Helper.SortNumbers(population)}
@@ -75,13 +83,13 @@ const CardPage: React.FC<CardProps> = ({
 
 export default CardPage;
 
-
-
- {/* {bulArray !== undefined &&
+{
+  /* {bulArray !== undefined &&
                   bulArray.map((array: any[], index: number) => {
                     return array.map((object: any, index: number) => (
                       <Card.Text key={index} className="text-muted">
                         {object.official}
                       </Card.Text>
                     ));
-                  })} */}
+                  })} */
+}
