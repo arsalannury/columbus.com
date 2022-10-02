@@ -14,11 +14,8 @@ export const useCountryData = (countryName: string | undefined) => {
   const queryClient = useQueryClient();
   return useQuery(["country", countryName], fetchData, {
     initialData: (): AxiosResponse<any, any> | Object | undefined => {
-      const initData:UseQueryResult = queryClient
-        .getQueryData<InitialQueryGetQueryDataInterface>("countries")
-        ?.data.find(
-          (value: initialQueryInterface) => value.name.common === countryName
-        );
+      const initData:UseQueryResult = queryClient.getQueryData<InitialQueryGetQueryDataInterface>("countries")
+        ?.data.find((value: initialQueryInterface) => value.name.common === countryName);
       if (initData) {
         return {
           data: initData,
