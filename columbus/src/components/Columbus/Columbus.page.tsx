@@ -6,6 +6,7 @@ import CardPage from "../Card/Card.page";
 import { useAllData } from "../../hooks/fetchAllData";
 import { Spinner } from "react-bootstrap";
 import { AxiosError, AxiosResponse } from "axios";
+import ErrorBoundryPage from "../ErrorBoundry/ErrorBoundry.page";
 
 const ColumbusPage: React.FC = () => {
   const { data, isError, isLoading, isFetching, error } = useAllData();
@@ -14,10 +15,7 @@ const ColumbusPage: React.FC = () => {
 
   if (isError) {
     return (
-      <>
-        <h1>{errorBoundry.message}</h1>
-        <p>check your internet connection</p>
-      </>
+         <ErrorBoundryPage />
     );
   }
   console.log(data);

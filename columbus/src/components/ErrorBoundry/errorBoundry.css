@@ -1,0 +1,12 @@
+.error-boundry {
+  z-index: 100;
+}
+
+.container {
+  background-color: #fff !important;
+  z-index: 1;
+}
+
+.wifi-icon {
+    font-size: 9em;
+}

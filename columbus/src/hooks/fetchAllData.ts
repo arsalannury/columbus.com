@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { UseQueryResult } from "react-query/types/react";
 
 const fetchData = () => {
-  return axios.get(`https://restcountries.com/v3.1/all`);
+  return axios.get(`https://restcountriees.com/v3.1/all`);
 };
 
 export const useAllData = (): UseQueryResult => {

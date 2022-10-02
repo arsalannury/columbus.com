@@ -1,5 +1,6 @@
 import {useParams} from 'react-router-dom';
 import { useCountryData } from '../../hooks/fetchCountryData';
+import {Row,Col} from 'react-bootstrap';
 
 const CountryPage: React.FC = () => {
     const {id} = useParams();
