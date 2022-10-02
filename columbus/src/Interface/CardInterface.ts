@@ -9,4 +9,5 @@ export interface CardProps {
   translations: { per: { official: string } };
   population: number | string;
   region: string;
+  common: string;
 }

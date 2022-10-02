@@ -58,6 +58,7 @@ const ColumbusPage: React.FC = () => {
                 translations={country.translations}
                 population={country.population}
                 region={country.region}
+                common={country.name.common}
               />
             ))}
           </Col>
