@@ -4,6 +4,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { QueryClientProviderPropsWithChildren } from "./Interface/QueryClientProviderInterface";
 import VideoBackground from "./components/VideoBackground/VideoBackground";
+import { Routes, Route } from "react-router-dom";
+import CountryPage from "./components/Country/Country.page";
 
 const client = new QueryClient();
 const Provider: React.FC<QueryClientProviderPropsWithChildren> =
@@ -15,7 +17,10 @@ const App: React.FC = () => {
       <Provider client={client}>
         <React.Profiler id="columbus" onRender={(e) => console.log(e)}>
           <VideoBackground />
-          <ColumbusPage />
+          <Routes>
+            <Route path="/" element={<ColumbusPage />} />
+            <Route path="/country/:id" element={<CountryPage />} />
+          </Routes>
         </React.Profiler>
         <ReactQueryDevtools />
       </Provider>

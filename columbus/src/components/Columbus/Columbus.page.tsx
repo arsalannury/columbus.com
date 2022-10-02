@@ -32,7 +32,6 @@ const ColumbusPage: React.FC = () => {
 
   return (
     <>
-     
       <Container fluid className="columbus_container ">
         <Row className="columbus_row">
           <Col lg={6}>
