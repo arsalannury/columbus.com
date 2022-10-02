@@ -14,9 +14,9 @@ const ErrorBoundryPage: React.FC = () => {
         <div className="container  d-flex align-items-center justify-content-evenly flex-column w-75 h-75 ">
         <i className="wifi-icon bi bi-wifi-off text-danger"></i>
           <h1 className="error-boundry text-dark">Data can't loaded...</h1>
-          <h2 className="error-boundry text-dark">
+          <p className="error-boundry text-dark">
             Chek your internet connection
-          </h2>
+          </p>
           <Button
             onClick={handleReloadClick}
             className="error-boundry "
