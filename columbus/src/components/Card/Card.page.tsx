@@ -65,16 +65,6 @@ const CardPage: React.FC<CardProps> = ({
                   population: {Helper.SortNumbers(population)}
                 </p>
               </div>
-              <>
-                {/* {bulArray !== undefined &&
-                  bulArray.map((array: any[], index: number) => {
-                    return array.map((object: any, index: number) => (
-                      <Card.Text key={index} className="text-muted">
-                        {object.official}
-                      </Card.Text>
-                    ));
-                  })} */}
-              </>
             </Card.Body>
           </Card>
         </Col>
@@ -84,3 +74,14 @@ const CardPage: React.FC<CardProps> = ({
 };
 
 export default CardPage;
+
+
+
+ {/* {bulArray !== undefined &&
+                  bulArray.map((array: any[], index: number) => {
+                    return array.map((object: any, index: number) => (
+                      <Card.Text key={index} className="text-muted">
+                        {object.official}
+                      </Card.Text>
+                    ));
+                  })} */}

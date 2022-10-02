@@ -2,22 +2,22 @@ export abstract class Helper {
   static readonly SortNumbers = (
     parameter: number | string
   ): string | number | undefined => {
-    const toString = parameter.toString();
-    if (toString.length <= 3 || toString.length <= 2) return parameter;
+    const parameterToString = parameter.toString();
+    if (parameterToString.length <= 3 || parameterToString.length <= 2) return parameter;
 
-    switch (toString.length) {
+    switch (parameterToString.length) {
       case 4:
-        return this.CheckParameterOfSortNumber(toString, 1);
+        return this.CheckParameterOfSortNumber(parameterToString, 1);
       case 5:
-        return this.CheckParameterOfSortNumber(toString, 2);  
+        return this.CheckParameterOfSortNumber(parameterToString, 2);  
       case 6:
-        return this.CheckParameterOfSortNumber(toString, 3);
+        return this.CheckParameterOfSortNumber(parameterToString, 3);
       case 7:
-        return this.CheckParameterOfSortNumber(toString, 1, 5);
+        return this.CheckParameterOfSortNumber(parameterToString, 1, 5);
       case 8:
-        return this.CheckParameterOfSortNumber(toString, 2, 6);
+        return this.CheckParameterOfSortNumber(parameterToString, 2, 6);
       case 9:
-        return this.CheckParameterOfSortNumber(toString, 3, 7);  
+        return this.CheckParameterOfSortNumber(parameterToString, 3, 7);  
     }
   };
 

@@ -21,7 +21,6 @@ const ColumbusPage: React.FC = () => {
     );
   }
   console.log(data);
-  
 
   if (isLoading) {
     return (
@@ -33,11 +32,14 @@ const ColumbusPage: React.FC = () => {
 
   return (
     <>
+      <video className="video-background" muted loop autoPlay>
+        <source src="planet.mp4" type="video/mp4" />
+      </video>
       <Container fluid className="columbus_container ">
         <Row className="columbus_row">
           <Col lg={6}>
             <section className="introduce_setction">
-              <h1>Columbus.com</h1>
+              <h1 className="columbus-h1">Columbus.com</h1>
               <p className="main_title">search about all countries</p>
               <p>copyright 2022-2023</p>
             </section>
@@ -51,7 +53,7 @@ const ColumbusPage: React.FC = () => {
                 key={index}
                 coatOfArms={country.coatOfArms}
                 officialName={country.name.official}
-                bul={country.name.nativeName} 
+                bul={country.name.nativeName}
                 languages={country.languages}
                 maps={country.maps}
                 flags={country.flags}
