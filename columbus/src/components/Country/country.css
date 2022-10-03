@@ -1,6 +1,6 @@
 .country-container {
-    width: 90%;
-    height: 90%;
+    width: 98%;
+    height: 98%;
     background-color: #fff;
     z-index: 1;
     backdrop-filter: blur(16px) saturate(182%);
