@@ -24,6 +24,7 @@ body {
   color: #fff;
   position: relative;
   z-index: 100;
+  scroll-behavior: smooth;
   /* background-color: #212529; */
 }
 #root::before {

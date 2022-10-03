@@ -20,10 +20,15 @@ const CardPage: React.FC<CardProps> = ({
 }) => {
   const bulArray: any[] = bul && Object.entries(bul);
   const languageArray: any[] = languages && Object.entries(languages);
+  const handleLinkClick = () => {
+    const element = document.querySelector(".row-card");
+    console.log(element?.scrollTop);
+    
+  }
 
   return (
     <>
-      <Row xs={1} md={2} className="g-4">
+      <Row xs={1} md={2} className="g-4 row-card">
         <Col className="w-100">
           <Link style={{ all: "unset",cursor:"pointer" }} to={`/country/${common}`}>
             <Card className="flex-row mt-3 card-main rounded-0 overflow-hidden">
