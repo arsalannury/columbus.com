@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import Container from "react-bootstrap/esm/Container";
 import { Row, Col } from "react-bootstrap";
 import "./columbus.css";
@@ -10,13 +10,24 @@ import ErrorBoundryPage from "../ErrorBoundry/ErrorBoundry.page";
 
 const ColumbusPage: React.FC = () => {
   const { data, isError, isLoading, isFetching, error } = useAllData();
-  const errorBoundry = error as AxiosError;
+  // const [position,setPosition] = useState<number>(0);
   const dataType = data as AxiosResponse;
+  const handleScrollSave = (scroll:number): void => {
+      // setPosition(scroll);
+      localStorage.setItem("scrollTop",JSON.stringify(scroll));
+  }  
+  
+
+  useEffect(() => {
+    const scrollTopToNumber = JSON.parse(localStorage.getItem("scrollTop")!);
+    const columnElement = document.getElementById("#card-column") as HTMLDivElement;
+    if(scrollTopToNumber) {
+      columnElement.scrollTop = scrollTopToNumber;
+    }
+  }, []);
 
   if (isError) {
-    return (
-         <ErrorBoundryPage />
-    );
+    return <ErrorBoundryPage />;
   }
   console.log(data);
 
@@ -40,7 +51,9 @@ const ColumbusPage: React.FC = () => {
             </section>
           </Col>
           <Col
+            onScroll={(event: any) => {handleScrollSave(event.target.scrollTop)}}
             lg={6}
+            id="card-column"
             style={{ overflowY: "scroll", height: "100%", zIndex: "1" }}
           >
             {dataType.data.map((country: any, index: number) => (
