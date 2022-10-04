@@ -10,4 +10,5 @@ export interface CardProps {
   population: number | string;
   region: string;
   common: string;
+  official: string;
 }

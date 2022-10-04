@@ -17,6 +17,7 @@ const CardPage: React.FC<CardProps> = ({
   population,
   region,
   common,
+  official
 }) => {
   const bulArray: any[] = bul && Object.entries(bul);
   const languageArray: any[] = languages && Object.entries(languages);
@@ -30,7 +31,7 @@ const CardPage: React.FC<CardProps> = ({
     <>
       <Row xs={1} md={2} className="g-4 row-card">
         <Col className="w-100">
-          <Link style={{ all: "unset",cursor:"pointer" }} to={`/country/${common}`}>
+          <Link style={{ all: "unset",cursor:"pointer" }} to={`/country/${official}`}>
             <Card className="flex-row mt-3 card-main rounded-0 overflow-hidden">
               <Card.Img
                 variant="top"

@@ -1,13 +1,16 @@
 import { useParams } from "react-router-dom";
 import { useCountryData } from "../../hooks/fetchCountryData";
-import { Row, Col, Spinner } from "react-bootstrap";
+import { Row, Col, Spinner, Container, Image  } from "react-bootstrap";
 import ErrorBoundryPage from "../ErrorBoundry/ErrorBoundry.page";
+import { AxiosResponse } from "axios";
 import "./country.css";
+import { CountryInterface } from "../../Interface/CountryInterface";
 
 const CountryPage: React.FC = () => {
   const { id } = useParams();
   const { data, isLoading, isError } = useCountryData(id);
-  console.log(data);
+  const dataType = data as AxiosResponse;
+  console.log(dataType.data);
 
   if (isLoading) {
     return (
@@ -25,7 +28,15 @@ const CountryPage: React.FC = () => {
     <>
       <div className="d-flex align-items-center justify-content-center h-100">
         <div className="country-container">
-          <h1>gesgeef</h1>
+          {/* <Container>
+            {
+              dataType?.data.map((country:CountryInterface) => (
+               <Row>
+                <Col><Image rounded src={country.flags.png} alt="country-flag.png" /></Col>
+               </Row>
+              ))
+            }
+          </Container> */}
         </div>
       </div>
     </>
