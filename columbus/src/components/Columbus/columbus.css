@@ -42,3 +42,10 @@
 .columbus-h1 {
   z-index: 1;
 }
+
+.column-scrollable {
+  overflow-y: scroll;
+  height: 100%;
+  z-index: 1;
+  scroll-behavior: smooth;
+}
