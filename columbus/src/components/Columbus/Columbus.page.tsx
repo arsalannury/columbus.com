@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef,useLayoutEffect } from "react";
 import Container from "react-bootstrap/esm/Container";
 import { Row, Col } from "react-bootstrap";
 import "./columbus.css";
@@ -16,12 +16,14 @@ const ColumbusPage: React.FC = () => {
     localStorage.setItem("scrollTop", JSON.stringify(scroll));
   };
 
-  useEffect(() => {
-    if (localStorage.getItem("scrollTop") && (undefined !== columnRef)) {
-      columnRef.current.scrollTo(
-        0,
-        JSON.parse(localStorage.getItem("scrollTop")!)
-      );
+  useLayoutEffect(() => {
+    if (localStorage.getItem("scrollTop")) {
+      if(undefined !== columnRef){
+        columnRef.current.scrollTo(
+          0,
+          JSON.parse(localStorage.getItem("scrollTop")!)
+        );
+      }
     }
   }, []);
 
@@ -72,7 +74,7 @@ const ColumbusPage: React.FC = () => {
                 population={country.population}
                 region={country.region}
                 common={country.name.common}
-                official={country.name.official}
+
               />
             ))}
           </Col>
