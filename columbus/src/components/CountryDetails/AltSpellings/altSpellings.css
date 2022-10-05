@@ -1,0 +1,16 @@
+.motion-div-main {
+  width: 200px;
+  height: 140px;
+  cursor: pointer;
+}
+.motion-div-presence {
+  width: 310px;
+  height: 230px;
+  /* transform: scale(2); */
+}
+.motion-btn-close {
+  top: 7px;
+  left: 15px;
+  padding: 2px 5px;
+  border-radius: 50%;
+}

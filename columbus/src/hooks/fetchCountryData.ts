@@ -13,6 +13,7 @@ const fetchData = ({ queryKey }: any) => {
 export const useCountryData = (countryName: string | undefined) => {
   const queryClient = useQueryClient();
   return useQuery(["country", countryName], fetchData, {
+    refetchOnWindowFocus:false,
     initialData: (): AxiosResponse<any, any> | Object | undefined => {
       const initData:UseQueryResult = queryClient.getQueryData<InitialQueryGetQueryDataInterface>("countries")
         ?.data.find((value: initialQueryInterface) => value.name.common === countryName);

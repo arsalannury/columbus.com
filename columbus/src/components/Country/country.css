@@ -19,7 +19,10 @@
 .flags-bootstarp-container {
   background-color: unset !important;
   margin-top: 15px;
+  border-bottom: 3px solid #fff;
+  padding-bottom: 15px;
 }
 .list-group-item-alt-spellings {
-    font-size: .8em;
+  font-size: 0.8em;
 }
+
