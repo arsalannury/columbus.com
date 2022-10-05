@@ -9,7 +9,7 @@ import { AxiosResponse } from "axios";
 import ErrorBoundryPage from "../ErrorBoundry/ErrorBoundry.page";
 
 const ColumbusPage: React.FC = () => {
-  const columnRef = useRef<HTMLDivElement>();
+  const columnRef = useRef<HTMLDivElement>(null);
   const { data, isError, isLoading, isFetching } = useAllData();
   const dataType = data as AxiosResponse;
   const handleScrollSave = (scroll: number): void => {
@@ -18,8 +18,8 @@ const ColumbusPage: React.FC = () => {
 
   useLayoutEffect(() => {
     if (localStorage.getItem("scrollTop")) {
-      if(undefined !== columnRef){
-        columnRef.current.scrollTo(
+      if(columnRef !== null){
+        columnRef!.current?.scrollTo(
           0,
           JSON.parse(localStorage.getItem("scrollTop")!)
         );

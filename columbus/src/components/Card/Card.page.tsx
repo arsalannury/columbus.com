@@ -30,7 +30,7 @@ const CardPage: React.FC<CardProps> = ({
     <>
       <Row xs={1} md={2} className="g-4 row-card">
         <Col className="w-100">
-          <Link style={{ all: "unset",cursor:"pointer" }} to={`/country/${officialName}`}>
+          <Link style={{ all: "unset",cursor:"pointer" }} to={`/country/${common}`}>
             <Card className="flex-row mt-3 card-main rounded-0 overflow-hidden">
               <Card.Img
                 variant="top"
