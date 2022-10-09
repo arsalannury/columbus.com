@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { AnimatePresence, AnimatePresenceProps, motion } from "framer-motion";
 import { Col } from "react-bootstrap";
-import "./altSpellings.css";
-import { AltSpellingsInterface } from "../../../Interface/AltSpellingsInterface";
+import { motion, AnimatePresence } from "framer-motion";
+import { CountryDetailInterfaceProps } from "../../Interface/CountryDetailInterfaceProps";
 
-const AltSpellingsFramerMotion: React.FC<AltSpellingsInterface> = ({
-  altSpellings,
+const CountryDetailHOC: React.FC<CountryDetailInterfaceProps> = ({
+  boxTitle,
+  detailTItle,
+  dataOption,
 }) => {
   const [selectedId, setSelectedId] = useState<undefined | string>(undefined);
 
@@ -19,7 +20,7 @@ const AltSpellingsFramerMotion: React.FC<AltSpellingsInterface> = ({
           onClick={() => setSelectedId("alt-spellings")}
         >
           <motion.p className="motion-p-main text-dark text-center">
-            alt spellings
+            {boxTitle}
           </motion.p>
         </motion.div>
       </Col>
@@ -27,8 +28,8 @@ const AltSpellingsFramerMotion: React.FC<AltSpellingsInterface> = ({
         {selectedId && (
           <motion.div className="v-100 h-100 motion-div-modal d-flex align-items-center justify-content-center">
             <motion.div
-              layout
               className="motion-div-presence position-relative shadow-lg bg-white "
+              layout
               layoutId={selectedId}
               initial={{ opacity: 0, borderRadius: 0 }}
               animate={{ opacity: 1, borderRadius: "2rem" }}
@@ -41,12 +42,14 @@ const AltSpellingsFramerMotion: React.FC<AltSpellingsInterface> = ({
                 <i className="text-white bi bi-x"></i>
               </motion.button>
               <motion.p className="text-center text-dark">
-                Alt Spellings country
+                {detailTItle}
               </motion.p>
               <motion.hr className="border border-dark text-dark" />
               <motion.ul>
-                {altSpellings.map((value, index) => (
-                  <motion.li className="text-dark list-group-item" key={index}>{value}</motion.li>
+                {[dataOption]?.map((value: any, index: number) => (
+                  <motion.li className="text-dark list-group-item" key={index}>
+                    {value}
+                  </motion.li>
                 ))}
               </motion.ul>
             </motion.div>
@@ -57,4 +60,4 @@ const AltSpellingsFramerMotion: React.FC<AltSpellingsInterface> = ({
   );
 };
 
-export default AltSpellingsFramerMotion;
+export default CountryDetailHOC;

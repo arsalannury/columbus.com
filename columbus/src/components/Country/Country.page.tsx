@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { useCountryData } from "../../hooks/fetchCountryData";
-import { useState } from "react";
 import {
   Row,
   Col,
@@ -12,15 +11,15 @@ import {
 import ErrorBoundryPage from "../ErrorBoundry/ErrorBoundry.page";
 import { AxiosResponse } from "axios";
 import "./country.css";
-import { AnimatePresence, AnimatePresenceProps, motion } from "framer-motion";
 import AltSpellingsFramerMotion from "../CountryDetails/AltSpellings/AltSpellings.framer.motion";
+import CountryDetailHOC from "../HOC/CountryDetailHOC";
 
 const CountryPage: React.FC = () => {
-  const [selectedId, setSelectedId] = useState<undefined | string>(undefined);
   const { id } = useParams();
   const { data, isLoading, isError } = useCountryData(id);
   const AxiosResponseObject = data as AxiosResponse<any, any>;
   const dataArray = AxiosResponseObject?.data[0];
+
   console.log(AxiosResponseObject);
 
   if (isLoading) {
@@ -61,8 +60,8 @@ const CountryPage: React.FC = () => {
           </Container>
 
           <Row>
-            <AltSpellingsFramerMotion />
-          </Row>        
+            {/* <CountryDetailHOC dataOption={dta } /> */}
+          </Row>
         </div>
       </div>
     </>
