@@ -12,7 +12,8 @@ import ErrorBoundryPage from "../ErrorBoundry/ErrorBoundry.page";
 import { AxiosResponse } from "axios";
 import "./country.css";
 import AltSpellingsFramerMotion from "../CountryDetails/AltSpellings/AltSpellings.framer.motion";
-import CountryDetailHOC from "../HOC/CountryDetailHOC";
+import CapitalFramerMotion from "../CountryDetails/Capital/Capital.framer.motion";
+import GeographyFramerMotion from "../CountryDetails/Geography/Geography.framer.motion";
 
 const CountryPage: React.FC = () => {
   const { id } = useParams();
@@ -60,7 +61,17 @@ const CountryPage: React.FC = () => {
           </Container>
 
           <Row>
-            {/* <CountryDetailHOC dataOption={dta } /> */}
+            <AltSpellingsFramerMotion altSpellings={dataArray?.altSpellings} />
+            <CapitalFramerMotion
+              capitalInfo={dataArray?.capitalInfo}
+              capital={dataArray?.capital}
+            />
+            <GeographyFramerMotion
+              borders={dataArray?.borders}
+              continents={dataArray?.continents}
+              independent={dataArray?.independent}
+              landlocked={dataArray?.landlocked}
+            />
           </Row>
         </div>
       </div>

@@ -1,52 +1,57 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Col } from "react-bootstrap";
-import "./altSpellings.css";
-import { AltSpellingsInterface } from "../../../Interface/AltSpellingsInterface";
+import "../AltSpellings/altSpellings.css";
 
-const AltSpellingsFramerMotion: React.FC<AltSpellingsInterface> = ({
-  altSpellings,
+interface IProps {
+    capitalInfo : {latlng:string[]};
+    capital : string[];
+}
+
+const CapitalFramerMotion: React.FC<IProps> = ({
+    capitalInfo,capital
 }) => {
-  const [selectedId, setSelectedId] = useState<undefined | string>(undefined);
+  const [selected, setSelected] = useState<undefined | string>(undefined);
 
   return (
     <>
       <Col className="p-4">
         <motion.div
           className="motion-div-main shadow-lg bg-white d-flex align-items-center justify-content-center"
-          layoutId="alt-spellings"
+          layoutId="capital"
           layout
-          onClick={() => setSelectedId("alt-spellings")}
+          onClick={() => setSelected("capital")}
         >
           <motion.p className="motion-p-main text-dark m-0 text-center">
-            alt spellings
+           capital
           </motion.p>
         </motion.div>
       </Col>
       <AnimatePresence>
-        {selectedId && (
-          <motion.div className="w-100 h-50 motion-div-modal d-flex align-items-center justify-content-center position-fixed">
+        {selected && (
+          <motion.div className="w-100 h-50 motion-div-modal d-flex align-items-center position-fixed justify-content-center">
             <motion.div
               layout
               className="motion-div-presence position-relative shadow-lg bg-white "
-              layoutId={selectedId}
+              layoutId={selected}
               initial={{ opacity: 0, borderRadius: 0 }}
               animate={{ opacity: 1, borderRadius: "2rem" }}
               exit={{ opacity: 0, borderRadius: 0 }}
             >
               <motion.button
-                onClick={() => setSelectedId(undefined)}
+                onClick={() => setSelected(undefined)}
                 className="position-absolute bg-secondary border-0 motion-btn-close"
               >
                 <i className="text-white bi bi-x"></i>
               </motion.button>
               <motion.p className="text-center text-dark m-0 p-2">
-                Alt Spellings country
+                Capital Detail
               </motion.p>
               <motion.hr className="border border-dark text-dark m-0" />
+              <motion.p className="text-center text-secondary m-0 pt-2" >{capital && capital[0]}</motion.p>
               <motion.ul>
-                {altSpellings?.map((value, index) => (
-                  <motion.li className="py-2 text-secondary m-0 list-group-item" key={index}>{value}</motion.li>
+                {capitalInfo?.latlng.map((value, index) => (
+                  <motion.li className="text-secondary m-0 list-group-item pt-4" style={{fontSize:".8em"}} key={index}>{value}</motion.li>
                 ))}
               </motion.ul>
             </motion.div>
@@ -57,4 +62,4 @@ const AltSpellingsFramerMotion: React.FC<AltSpellingsInterface> = ({
   );
 };
 
-export default AltSpellingsFramerMotion;
+export default CapitalFramerMotion;
