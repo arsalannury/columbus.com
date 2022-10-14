@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Col } from "react-bootstrap";
+import { Col,Alert } from "react-bootstrap";
 import "../AltSpellings/altSpellings.css";
 import { Helper } from "../../../helper/helper";
 
 interface IProps {
     borders: string[];
     continents : string[];
+    subregion : string;
     landlocked : boolean;
     independent : boolean;
 }
 
 const GeographyFramerMotion: React.FC<IProps> = ({
-    borders,continents,independent,landlocked
+    borders,continents,independent,landlocked,subregion
 }) => {
   const [selected, setSelected] = useState<undefined | string>(undefined);
 
@@ -51,15 +52,18 @@ const GeographyFramerMotion: React.FC<IProps> = ({
               Geography Detail
               </motion.p>
               <motion.hr className="border border-dark text-dark m-0" />
-              <motion.div className="d-flex align-items-center justify-content-around">
-              <motion.span className="text-secondary">independent: {Helper.ConvertBooleanToYesNo(independent)}</motion.span>
-              <motion.span className="text-secondary">landlocked: {Helper.ConvertBooleanToYesNo(landlocked)}</motion.span>
+              <motion.div className="w-100">
+                <Alert variant="info" className="mb-0 d-flex align-items-center justify-content-around rounded-0">
+              <motion.span className="text-secondary" style={{fontSize:".9em"}}>independent: {Helper.ConvertBooleanToYesNo(independent)}</motion.span>
+              <motion.span className="text-secondary" style={{fontSize:".9em"}}>landlocked: {Helper.ConvertBooleanToYesNo(landlocked)}</motion.span>
+                </Alert>
               </motion.div>
               <motion.p className="text-left text-secondary mb-0 ms-3 pt-2" >continents: {continents && continents[0]}</motion.p>
-              <motion.ul className="d-flex align-items-center justify-content-around p-0 flex-wrap">
+              <motion.p className="text-left text-secondary mb-0 ms-3 pt-2" >subregion: {subregion && subregion}</motion.p>
+              <motion.ul className="d-flex align-items-center justify-content-left p-0 pt-2 ms-3 flex-wrap m-0">
                 <motion.p className="text-left text-secondary mb-0">borders: </motion.p>
                 {borders?.map((value, index) => (
-                  <motion.li className="text-secondary m-0 list-group-item  mr-3" style={{fontSize:".8em"}} key={index}>{value}</motion.li>
+                  <motion.li className="text-secondary m-0 list-group-item ms-2 " style={{fontSize:".8em"}} key={index}>{value}</motion.li>
                 ))}
               </motion.ul>
             </motion.div>

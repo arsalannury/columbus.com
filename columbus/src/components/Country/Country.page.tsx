@@ -71,6 +71,7 @@ const CountryPage: React.FC = () => {
               continents={dataArray?.continents}
               independent={dataArray?.independent}
               landlocked={dataArray?.landlocked}
+              subregion={dataArray?.subregion}
             />
           </Row>
         </div>
