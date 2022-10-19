@@ -5,7 +5,7 @@
 }
 .motion-div-presence {
   width: 310px;
-  height: 230px;
+  min-height: 230px;
 }
 .motion-btn-close {
   top: 7px;

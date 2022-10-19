@@ -15,7 +15,7 @@ const CapitalFramerMotion: React.FC<IProps> = ({
 
   return (
     <>
-      <Col className="p-4">
+      <Col className="p-4 d-flex align-items-center justify-content-center">
         <motion.div
           className="motion-div-main shadow-lg bg-white d-flex align-items-center justify-content-center"
           layoutId="capital"
