@@ -14,7 +14,7 @@ import "./country.css";
 import AltSpellingsFramerMotion from "../CountryDetails/AltSpellings/AltSpellings.framer.motion";
 import CapitalFramerMotion from "../CountryDetails/Capital/Capital.framer.motion";
 import GeographyFramerMotion from "../CountryDetails/Geography/Geography.framer.motion";
-import GlobalFramerMotion from "../CountryDetails/Global/Global.framer.motion";
+import PublicFramerMotion from "../CountryDetails/Public/Public.framer.motion";
 
 const CountryPage: React.FC = () => {
   const { id } = useParams();
@@ -74,15 +74,13 @@ const CountryPage: React.FC = () => {
               landlocked={dataArray?.landlocked}
               subregion={dataArray?.subregion}
             />
-
-            <GlobalFramerMotion
-              car={dataArray?.car}
-              currencies={dataArray?.currencies}
+{/* car={dataArray?.car}
+              currencies={dataArray?.currencies} */}
+            <PublicFramerMotion
               idd={dataArray?.idd}
-              population={dataArray?.population}
               startOfWeek={dataArray?.startOfWeek}
-              tld={dataArray?.tld}
               timezones={dataArray?.timezones}
+              postalCode={dataArray?.postalCode}
             />
           </Row>
         </div>

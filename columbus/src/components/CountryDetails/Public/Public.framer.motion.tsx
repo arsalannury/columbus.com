@@ -1,33 +1,29 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Col } from "react-bootstrap";
+import { Col, Badge } from "react-bootstrap";
 import "../AltSpellings/altSpellings.css";
 import { Helper } from "../../../helper/helper";
 
-interface GlobalInterface {
-  car: {
-    side: string;
-    signs: string[];
-  };
-  currencies: any;
-  population: number;
+interface PublicInterface {
+  // car: {
+  //   side: string;
+  //   signs: string[];
+  // };
+  // currencies: any;
   startOfWeek: string;
   timezones: string[];
-  tld: string[];
+  postalCode: {format:string,regex?:string};
   idd: {
     root: string;
     suffixes: string[];
   };
 }
 
-const GlobalFramerMotion: React.FC<GlobalInterface> = ({
-  car,
-  currencies,
+const PublicFramerMotion: React.FC<PublicInterface> = ({
   idd,
-  population,
   startOfWeek,
-  tld,
   timezones,
+  postalCode
 }) => {
   const [selected, setSelected] = useState<undefined | string>(undefined);
 
@@ -36,12 +32,12 @@ const GlobalFramerMotion: React.FC<GlobalInterface> = ({
       <Col className="p-4 d-flex align-items-center justify-content-center">
         <motion.div
           className="motion-div-main shadow-lg bg-white d-flex align-items-center justify-content-center"
-          layoutId="global"
+          layoutId="public"
           layout
-          onClick={() => setSelected("global")}
+          onClick={() => setSelected("public")}
         >
           <motion.p className="motion-p-main text-dark m-0 text-center">
-            global
+            public
           </motion.p>
         </motion.div>
       </Col>
@@ -63,23 +59,30 @@ const GlobalFramerMotion: React.FC<GlobalInterface> = ({
                 <i className="text-white bi bi-x"></i>
               </motion.button>
               <motion.p className="text-center text-dark m-0 p-2">
-                global information
+                public information
               </motion.p>
               <motion.hr className="border border-dark text-dark m-0" />
-              <motion.p className="text-secondary" style={{paddingLeft:"2rem"}}>startOfWeek: {startOfWeek}</motion.p>
-              <motion.p className="text-secondary" style={{paddingLeft:"2rem"}}>population: {Helper.SortNumbers(population)}</motion.p>
+              <motion.p
+                className="text-secondary pt-2"
+                style={{ paddingLeft: "2rem" }}
+              >
+                startOfWeek: <Badge bg="primary">{startOfWeek}</Badge>
+              </motion.p>
+              <motion.p style={{ paddingLeft: "2rem" }} className="text-secondary m-0 mb-3">postalCodeFormat: <>{postalCode?.format ? postalCode?.format : "----"}</></motion.p>
+              {/* <motion.p
+                className="text-secondary"
+                style={{ paddingLeft: "2rem" }}
+              >
+                population: {Helper.SortNumbers(population)}
+              </motion.p> */}
               <motion.ul>
                 <li className=" m-0 text-secondary list-group-item d-inline">
-                  tld:
+                  idd:
                 </li>
-                {tld?.map((value, index) => (
-                  <motion.li
-                    className="py-2 text-secondary m-0 list-group-item d-inline ms-2"
-                    key={index}
-                  >
-                    {value}
-                  </motion.li>
-                ))}
+                <motion.li className="py-2 text-secondary m-0 list-group-item d-inline ms-2">
+                  {idd?.root}
+                  {idd?.suffixes[0]}
+                </motion.li>
               </motion.ul>
               <motion.ul>
                 <li className=" m-0 list-group-item d-inline text-secondary">
@@ -87,7 +90,8 @@ const GlobalFramerMotion: React.FC<GlobalInterface> = ({
                 </li>
                 {timezones?.map((value, index) => (
                   <motion.li
-                    className="py-2 text-secondary m-0 list-group-item d-inline  ms-2"
+                    className="py-2 text-secondary m-0 list-group-item d-inline ms-2"
+                    style={{fontSize:".8em"}}
                     key={index}
                   >
                     {value}
@@ -102,4 +106,4 @@ const GlobalFramerMotion: React.FC<GlobalInterface> = ({
   );
 };
 
-export default GlobalFramerMotion;
+export default PublicFramerMotion;
