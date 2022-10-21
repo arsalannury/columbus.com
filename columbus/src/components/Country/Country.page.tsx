@@ -15,6 +15,7 @@ import AltSpellingsFramerMotion from "../CountryDetails/AltSpellings/AltSpelling
 import CapitalFramerMotion from "../CountryDetails/Capital/Capital.framer.motion";
 import GeographyFramerMotion from "../CountryDetails/Geography/Geography.framer.motion";
 import PublicFramerMotion from "../CountryDetails/Public/Public.framer.motion";
+import PaperComponent from "../CountryDetails/Paper/Paper.component";
 
 const CountryPage: React.FC = () => {
   const { id } = useParams();
@@ -83,12 +84,12 @@ const CountryPage: React.FC = () => {
               postalCode={dataArray?.postalCode}
             />
           </Row>
-          <Row>
-            <Col lg={6}></Col>
-            <Col lg={6}>
-             
-            </Col>
-          </Row>
+          <PaperComponent
+           area={dataArray?.area}
+           unMember={dataArray?.unMember}
+           common={dataArray?.name.common}
+           fifa={dataArray?.fifa}
+          />
         </div>
       </div>
     </>
