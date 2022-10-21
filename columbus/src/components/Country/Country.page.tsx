@@ -20,8 +20,8 @@ const CountryPage: React.FC = () => {
   const { id } = useParams();
   const { data, isLoading, isError } = useCountryData(id);
   const AxiosResponseObject = data as AxiosResponse<any, any>;
-  const dataArray = AxiosResponseObject?.data[0];
-
+  const dataArray = AxiosResponseObject?.data[id === "China" ? 3 : 0];
+ 
   console.log(AxiosResponseObject);
 
   if (isLoading) {

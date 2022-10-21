@@ -50,7 +50,7 @@ const CapitalFramerMotion: React.FC<IProps> = ({
               <motion.hr className="border border-dark text-dark m-0" />
               <motion.p className="text-center text-secondary m-0 pt-2" >{capital && capital[0]}</motion.p>
               <motion.ul>
-                {capitalInfo?.latlng.map((value, index) => (
+                {capitalInfo?.latlng?.map((value, index) => (
                   <motion.li className="text-secondary m-0 list-group-item pt-4" style={{fontSize:".8em"}} key={index}>{value}</motion.li>
                 ))}
               </motion.ul>
