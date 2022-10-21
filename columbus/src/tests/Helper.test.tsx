@@ -36,6 +36,10 @@ describe("SortNumbers", () => {
     const call = Helper.SortNumbers(123456789);
     expect(call).toContain("123/456/789");
   });
+  it("should return 1/234/567/890", () => {
+    const call = Helper.SortNumbers(1234567890);
+    expect(call).toContain("1/234/567/890");
+  });
   it("should return 123", () => {
     const call = Helper.SortNumbers(123);
     expect(call).toBe(123);

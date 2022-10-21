@@ -18,6 +18,8 @@ export abstract class Helper {
         return this.CheckParameterOfSortNumber(parameterToString, 2, 6);
       case 9:
         return this.CheckParameterOfSortNumber(parameterToString, 3, 7);  
+      case 10:
+        return this.CheckParameterOfSortNumber(parameterToString, 1, 5,9);  
     }
   };
 

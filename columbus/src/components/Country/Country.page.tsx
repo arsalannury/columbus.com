@@ -83,6 +83,12 @@ const CountryPage: React.FC = () => {
               postalCode={dataArray?.postalCode}
             />
           </Row>
+          <Row>
+            <Col lg={6}></Col>
+            <Col lg={6}>
+              <iframe loading="lazy" src={dataArray?.maps.googleMaps} width="100%" height="100%" referrerPolicy="unsafe-url" />
+            </Col>
+          </Row>
         </div>
       </div>
     </>
