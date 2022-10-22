@@ -9,6 +9,10 @@ import FIFA_ICON from "../../../images/fifa.png";
 import LAST_LAYER from "../../../images/blob-one.svg";
 import MIDDLE_LAYER from "../../../images/blob-two.svg";
 import FIRST_LAYER from "../../../images/blob-three.svg";
+import PEOPLE from "../../../images/people.png";
+import SEDAN from "../../../images/sedan.png";
+import PROFIT from "../../../images/profit.png";
+import CURRENCY from "../../../images/currency.png";
 import { Col, Row, Image } from "react-bootstrap";
 
 const GLOBAL_CLASS: string = "d-flex align-items-center py-2";
@@ -22,7 +26,12 @@ const PaperComponent: React.FC<PaperInterface> = ({
   common,
   fifa,
   coatOfArms,
+  car,
+  demonyms
 }) => {
+  const toArray = demonyms && Object.entries(demonyms);
+  console.log(demonyms);
+  
   return (
     <div className="paper mt-4 p-lg-5 p-1 bg-white ms-0">
       <Row>
@@ -80,7 +89,25 @@ const PaperComponent: React.FC<PaperInterface> = ({
             </Col>
           </Row>
           <Row>
-            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}></Col>
+            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}>
+            <Image
+                loading="lazy"
+                src={PEOPLE}
+                width="35px"
+                alt="fifa-icon"
+                className="mx-1"
+              />
+                <span className={TEXT_CLASS.spans}>demonyms: </span> 
+                   {toArray !== undefined &&
+                  toArray.map((array: any[]) => {
+                    return array.map((object: any, index: number) => (
+                      <span key={index} className="text-secondary global-text ms-1">
+                        {console.log(object)}
+                        {object[Object.keys(object)[0]]}
+                      </span>
+                    ));
+                  })} 
+            </Col>
             <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}></Col>
             <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}></Col>
             <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}></Col>
@@ -119,3 +146,4 @@ const PaperComponent: React.FC<PaperInterface> = ({
 };
 
 export default PaperComponent;
+ 

@@ -81,6 +81,7 @@ const CountryPage: React.FC = () => {
            fifa={dataArray?.fifa}
            coatOfArms={dataArray?.coatOfArms}
            car={dataArray?.car}
+           demonyms={dataArray?.demonyms}
           />
         </div>
       </div>
