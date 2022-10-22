@@ -6,7 +6,6 @@ import {
   Spinner,
   Container,
   Image,
-  Accordion,
 } from "react-bootstrap";
 import ErrorBoundryPage from "../ErrorBoundry/ErrorBoundry.page";
 import { AxiosResponse } from "axios";
@@ -43,22 +42,13 @@ const CountryPage: React.FC = () => {
         <div className="country-container-blur">
           <Container fluid className="flags-bootstarp-container">
             <Row>
-              <Col md={dataArray?.coatOfArms.png ? 6 : 12}>
+              <Col className="d-flex align-items-center justify-content-center">
                 <Image
                   src={dataArray?.flags.png}
                   className="country-flag"
                   alt="country-flag.png"
                 />
               </Col>
-              {dataArray?.coatOfArms.png && (
-                <Col md={6} className="coat-of-arms-column">
-                  <Image
-                    src={dataArray?.coatOfArms.png}
-                    className="country-coatOfArms"
-                    alt="country-coatOfArms.png"
-                  />
-                </Col>
-              )}
             </Row>
           </Container>
 
@@ -89,6 +79,8 @@ const CountryPage: React.FC = () => {
            unMember={dataArray?.unMember}
            common={dataArray?.name.common}
            fifa={dataArray?.fifa}
+           coatOfArms={dataArray?.coatOfArms}
+           car={dataArray?.car}
           />
         </div>
       </div>

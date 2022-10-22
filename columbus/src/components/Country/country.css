@@ -7,10 +7,7 @@
   -webkit-backdrop-filter: blur(16px) saturate(182%);
   background-color: rgba(255, 255, 255, 0.19);
 }
-.country-coatOfArms {
-  width: 200px;
-  height: 200px;
-}
+
 .coat-of-arms-column {
   display: flex;
   align-items: flex-start;

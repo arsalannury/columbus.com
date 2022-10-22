@@ -1,6 +1,55 @@
 .paper {
-    width: 100%;
+  width: 100%;
 }
 .global-text {
-    font-size: .8em;
+  font-size: 0.8em;
 }
+
+.country-coatOfArms {
+  width: 200px;
+  height: 200px;
+  z-index: 10;
+}
+
+.last-layer {
+  width: 300px;
+  animation: rotate-last 10s alternate infinite;
+  filter: drop-shadow(0 0 10px #999);
+}
+
+@keyframes rotate-last {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.middle-layer {
+  width: 280px;
+  animation: rotate-middle 10s alternate infinite;
+}
+
+@keyframes rotate-middle {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(-360deg);
+  }
+}
+
+.first-layer {
+  width: 260px;
+  animation: rotate-first 10s alternate infinite;
+}
+
+@keyframes rotate-last {
+    0% {
+      transform: rotateZ(0);
+    }
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
