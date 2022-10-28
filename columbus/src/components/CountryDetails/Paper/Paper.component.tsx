@@ -14,6 +14,7 @@ import SEDAN from "../../../images/sedan.png";
 import PROFIT from "../../../images/profit.png";
 import CURRENCY from "../../../images/currency.png";
 import { Col, Row, Image } from "react-bootstrap";
+import TranslationsComponent from "../Translations/Translations.component";
 
 const GLOBAL_CLASS: string = "d-flex align-items-center py-2";
 const TEXT_CLASS = {
@@ -30,6 +31,7 @@ const PaperComponent: React.FC<PaperInterface<any>> = ({
   demonyms,
   currencies,
   gini,
+  translations
 }) => {
   const demonymsToArray = demonyms && Object.values(demonyms);
   const currenciesToArray = currencies && Object.values(currencies);
@@ -154,6 +156,9 @@ const PaperComponent: React.FC<PaperInterface<any>> = ({
               </p>
             </Col>
           </Row>
+          <div>
+            <TranslationsComponent translations={translations} />
+          </div>
         </Col>
         <Col
           lg={6}

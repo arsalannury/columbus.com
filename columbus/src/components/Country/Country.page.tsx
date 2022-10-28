@@ -1,12 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useCountryData } from "../../hooks/fetchCountryData";
-import {
-  Row,
-  Col,
-  Spinner,
-  Container,
-  Image,
-} from "react-bootstrap";
+import { Row, Col, Spinner, Container, Image } from "react-bootstrap";
 import ErrorBoundryPage from "../ErrorBoundry/ErrorBoundry.page";
 import { AxiosResponse } from "axios";
 import "./country.css";
@@ -21,7 +15,7 @@ const CountryPage: React.FC = () => {
   const { data, isLoading, isError } = useCountryData(id);
   const AxiosResponseObject = data as AxiosResponse<any, any>;
   const dataArray = AxiosResponseObject?.data[id === "China" ? 3 : 0];
- 
+
   console.log(AxiosResponseObject);
 
   if (isLoading) {
@@ -74,15 +68,16 @@ const CountryPage: React.FC = () => {
             />
           </Row>
           <PaperComponent
-           area={dataArray?.area}
-           unMember={dataArray?.unMember}
-           common={dataArray?.name.common}
-           fifa={dataArray?.fifa}
-           coatOfArms={dataArray?.coatOfArms}
-           car={dataArray?.car}
-           demonyms={dataArray?.demonyms}
-           currencies={dataArray?.currencies}
-           gini={dataArray?.gini}
+            area={dataArray?.area}
+            unMember={dataArray?.unMember}
+            common={dataArray?.name.common}
+            fifa={dataArray?.fifa}
+            coatOfArms={dataArray?.coatOfArms}
+            car={dataArray?.car}
+            demonyms={dataArray?.demonyms}
+            currencies={dataArray?.currencies}
+            gini={dataArray?.gini}
+            translations={dataArray?.translations}
           />
         </div>
       </div>
@@ -91,4 +86,3 @@ const CountryPage: React.FC = () => {
 };
 
 export default CountryPage;
-

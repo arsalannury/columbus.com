@@ -1,0 +1,10 @@
+.custom-option {
+    appearance: none;
+    padding: 10px;
+    background-color: #eee;
+    font-weight: lighter;
+}
+
+.custom-select {
+    appearance: none;
+}

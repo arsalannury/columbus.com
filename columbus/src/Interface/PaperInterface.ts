@@ -8,4 +8,5 @@ export interface PaperInterface<T extends Object> {
   demonyms: any;
   currencies: { name: string; symbol: string };
   gini: T;
+  translations: any;
 }
