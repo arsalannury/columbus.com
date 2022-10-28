@@ -45,7 +45,7 @@
   animation: rotate-first 10s alternate infinite;
 }
 
-@keyframes rotate-last {
+@keyframes rotate-first {
     0% {
       transform: rotateZ(0);
     }

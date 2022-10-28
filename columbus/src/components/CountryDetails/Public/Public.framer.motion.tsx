@@ -84,7 +84,7 @@ const PublicFramerMotion: React.FC<PublicInterface> = ({
                   {idd?.suffixes[0]}
                 </motion.li>
               </motion.ul>
-              <motion.ul>
+              <motion.ul className="d-flex flex-wrap align-items-center">
                 <li className=" m-0 list-group-item d-inline text-secondary">
                   timezones:
                 </li>
