@@ -65,8 +65,7 @@ const CountryPage: React.FC = () => {
               landlocked={dataArray?.landlocked}
               subregion={dataArray?.subregion}
             />
-{/* car={dataArray?.car}
-              currencies={dataArray?.currencies} */}
+
             <PublicFramerMotion
               idd={dataArray?.idd}
               startOfWeek={dataArray?.startOfWeek}
@@ -82,6 +81,8 @@ const CountryPage: React.FC = () => {
            coatOfArms={dataArray?.coatOfArms}
            car={dataArray?.car}
            demonyms={dataArray?.demonyms}
+           currencies={dataArray?.currencies}
+           gini={dataArray?.gini}
           />
         </div>
       </div>
@@ -91,23 +92,3 @@ const CountryPage: React.FC = () => {
 
 export default CountryPage;
 
-// <Col md={dataArray?.coatOfArms.png ? 6 : 12}>
-// <ListGroup horizontal={"md"} className="my-3">
-//   <ListGroup.Item
-//     className="list-group-item-alt-spellings text-secondary"
-//     variant="primary"
-//   >
-//     alt spellings
-//   </ListGroup.Item>
-//   {dataArray?.altSpellings.map(
-//     (name: string, index: number) => (
-//       <ListGroup.Item
-//         className="list-group-item-alt-spellings"
-//         key={index}
-//       >
-//         {name}
-//       </ListGroup.Item>
-//     )
-//   )}
-// </ListGroup>
-// </Col>

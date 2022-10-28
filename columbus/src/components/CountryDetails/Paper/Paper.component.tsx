@@ -20,18 +20,20 @@ const TEXT_CLASS = {
   spans: "text-dark",
 };
 
-const PaperComponent: React.FC<PaperInterface> = ({
+const PaperComponent: React.FC<PaperInterface<any>> = ({
   area,
   unMember,
   common,
   fifa,
   coatOfArms,
   car,
-  demonyms
+  demonyms,
+  currencies,
+  gini,
 }) => {
-  const toArray = demonyms && Object.entries(demonyms);
-  console.log(demonyms);
-  
+  const demonymsToArray = demonyms && Object.values(demonyms);
+  const currenciesToArray = currencies && Object.values(currencies);
+
   return (
     <div className="paper mt-4 p-lg-5 p-1 bg-white ms-0">
       <Row>
@@ -90,27 +92,67 @@ const PaperComponent: React.FC<PaperInterface> = ({
           </Row>
           <Row>
             <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}>
-            <Image
+              <Image
                 loading="lazy"
                 src={PEOPLE}
                 width="35px"
                 alt="fifa-icon"
                 className="mx-1"
               />
-                <span className={TEXT_CLASS.spans}>demonyms: </span> 
-                   {toArray !== undefined &&
-                  toArray.map((array: any[]) => {
-                    return array.map((object: any, index: number) => (
-                      <span key={index} className="text-secondary global-text ms-1">
-                        {console.log(object)}
-                        {object[Object.keys(object)[0]]}
-                      </span>
-                    ));
-                  })} 
+              <span className={TEXT_CLASS.spans}>demonyms: </span>
+              {demonymsToArray !== undefined &&
+                demonymsToArray.map((object: any, index: number) => (
+                  <span key={index} className="text-secondary global-text ms-1">
+                    {object[Object.keys(object)[0]]}
+                  </span>
+                ))}
             </Col>
-            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}></Col>
-            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}></Col>
-            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}></Col>
+            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}>
+              <Image
+                loading="lazy"
+                src={CURRENCY}
+                width="35px"
+                alt="currency-icon"
+                className="mx-1"
+              />
+              <span className={TEXT_CLASS.spans}>currency: </span>
+              {currenciesToArray !== undefined &&
+                currenciesToArray.map((object: any, index: number) => (
+                  <span key={index} className="text-secondary global-text ms-1">
+                    {object["name"]} - {object["symbol"]}
+                  </span>
+                ))}
+            </Col>
+            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}>
+              <Image
+                loading="lazy"
+                src={SEDAN}
+                width="35px"
+                alt="sedan-icon"
+                className="mx-1"
+              />
+              <p className={`${TEXT_CLASS.spans} mb-0 ms-1`}>
+                car:{" "}
+                <span className="text-secondary global-text ms-1">
+                  {car?.side}
+                </span>
+              </p>
+            </Col>
+            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}>
+              <Image
+                loading="lazy"
+                src={PROFIT}
+                width="35px"
+                alt="profit-icon"
+                className="mx-1"
+              />
+              <p className={`${TEXT_CLASS.spans} mb-0 ms-1`}>
+                gini:{" "}
+                <span className="text-secondary global-text ms-1">
+                  {gini && gini[Object.keys(gini)[0]]}
+                </span>
+              </p>
+            </Col>
           </Row>
         </Col>
         <Col
@@ -146,4 +188,3 @@ const PaperComponent: React.FC<PaperInterface> = ({
 };
 
 export default PaperComponent;
- 
