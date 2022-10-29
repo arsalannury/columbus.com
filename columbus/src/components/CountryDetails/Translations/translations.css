@@ -1,10 +1,26 @@
-.custom-option {
-    appearance: none;
-    padding: 10px;
-    background-color: #eee;
-    font-weight: lighter;
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  padding: 5px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  color: #777;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
 }
 
-.custom-select {
-    appearance: none;
+.non-transform {
+  transform: rotate(0);
+}
+.with-transform {
+  transform: rotate(180deg);
+}
+
+.icon-select {
+  z-index: 1;
+  right: 10px;
 }
