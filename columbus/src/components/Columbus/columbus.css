@@ -49,3 +49,21 @@
   z-index: 1;
   scroll-behavior: smooth;
 }
+
+.search-container {
+  position: relative;
+}
+
+.search-container i {
+  margin-right: 5px;
+}
+
+.search-input {
+  background-color: transparent;
+  color: #fff;
+  padding: 5px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #fff;
+  font-family: sans-serif;
+}

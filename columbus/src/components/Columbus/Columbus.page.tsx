@@ -48,7 +48,7 @@ const ColumbusPage: React.FC = () => {
             <section className="introduce_setction">
               <h1 className="columbus-h1">Columbus.com</h1>
               <p className="main_title">search about all countries</p>
-              <p>copyright 2022-2023</p>
+              <div className="search-container"><i className="bi bi-search"></i><input className="search-input" type="text" /></div>
             </section>
           </Col>
 

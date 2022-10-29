@@ -18,7 +18,6 @@ const CardPage: React.FC<CardProps> = ({
   region,
   common
 }) => {
-  const bulArray: any[] = bul && Object.entries(bul);
   const languageArray: any[] = languages && Object.entries(languages);
   const handleLinkClick = () => {
     const element = document.querySelector(".row-card");
@@ -94,14 +93,3 @@ const CardPage: React.FC<CardProps> = ({
 };
 
 export default CardPage;
-
-{
-  /* {bulArray !== undefined &&
-                  bulArray.map((array: any[], index: number) => {
-                    return array.map((object: any, index: number) => (
-                      <Card.Text key={index} className="text-muted">
-                        {object.official}
-                      </Card.Text>
-                    ));
-                  })} */
-}

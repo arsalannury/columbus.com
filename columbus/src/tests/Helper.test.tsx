@@ -48,11 +48,11 @@ describe("SortNumbers", () => {
     const call = Helper.SortNumbers(12);
     expect(call).toBe(12);
   });
-  it("should return 12", () => {
+  it("should return 12 string", () => {
     const call = Helper.SortNumbers("12");
     expect(call).toContain("12");
   });
-  it("should return 123", () => {
+  it("should return 123 string", () => {
     const call = Helper.SortNumbers("123");
     expect(call).toContain("123");
   });
