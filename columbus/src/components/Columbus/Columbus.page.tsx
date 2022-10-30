@@ -1,4 +1,4 @@
-import React, { useEffect, useRef,useLayoutEffect } from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
 import Container from "react-bootstrap/esm/Container";
 import { Row, Col } from "react-bootstrap";
 import "./columbus.css";
@@ -7,18 +7,37 @@ import { useAllData } from "../../hooks/fetchAllData";
 import { Spinner } from "react-bootstrap";
 import { AxiosResponse } from "axios";
 import ErrorBoundryPage from "../ErrorBoundry/ErrorBoundry.page";
+import { CountryInterface } from "../../Interface/CountryInterface";
 
 const ColumbusPage: React.FC = () => {
   const columnRef = useRef<HTMLDivElement>(null);
-  const { data, isError, isLoading, isFetching } = useAllData();
-  const dataType = data as AxiosResponse;
+  const { data, isError, isLoading } = useAllData();
+  let dataTypeAny = data as any;
+  const [dataType,setDataType] = useState<any[]>(dataTypeAny?.data);
   const handleScrollSave = (scroll: number): void => {
     localStorage.setItem("scrollTop", JSON.stringify(scroll));
   };
 
+  const handleSearch = (searchedValues: string): void => {
+    if (searchedValues.trim().length === 0 || searchedValues.length === 0) {
+      setDataType(dataTypeAny.data);
+      return;
+    } else {
+      const filteredDataType = dataType.filter(
+        (country: CountryInterface) => {
+          return country.name.official
+            .toLocaleLowerCase()
+            .includes(searchedValues.toLowerCase());
+        }
+      );
+      // setDataType(filteredDataType);
+      console.log(filteredDataType)
+    }
+  };
+
   useLayoutEffect(() => {
     if (localStorage.getItem("scrollTop")) {
-      if(columnRef !== null){
+      if (columnRef !== null) {
         columnRef!.current?.scrollTo(
           0,
           JSON.parse(localStorage.getItem("scrollTop")!)
@@ -30,7 +49,6 @@ const ColumbusPage: React.FC = () => {
   if (isError) {
     return <ErrorBoundryPage />;
   }
-  console.log(data);
 
   if (isLoading) {
     return (
@@ -39,7 +57,7 @@ const ColumbusPage: React.FC = () => {
       </div>
     );
   }
-
+console.log(data)
   return (
     <>
       <Container fluid className="columbus_container ">
@@ -48,7 +66,14 @@ const ColumbusPage: React.FC = () => {
             <section className="introduce_setction">
               <h1 className="columbus-h1">Columbus.com</h1>
               <p className="main_title">search about all countries</p>
-              <div className="search-container"><i className="bi bi-search"></i><input className="search-input" type="text" /></div>
+              <div className="search-container">
+                <i className="bi bi-search"></i>
+                <input
+                  onInput={(event: any) => handleSearch(event.target.value)}
+                  className="search-input"
+                  type="text"
+                />
+              </div>
             </section>
           </Col>
 
@@ -60,7 +85,7 @@ const ColumbusPage: React.FC = () => {
             ref={columnRef}
             className="column-scrollable"
           >
-            {dataType.data.map((country: any, index: number) => (
+            {dataType?.map((country: any, index: number) => (
               <CardPage
                 key={index}
                 coatOfArms={country.coatOfArms}
@@ -74,7 +99,6 @@ const ColumbusPage: React.FC = () => {
                 population={country.population}
                 region={country.region}
                 common={country.name.common}
-
               />
             ))}
           </Col>
