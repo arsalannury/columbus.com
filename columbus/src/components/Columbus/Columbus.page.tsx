@@ -71,6 +71,7 @@ const ColumbusPage: React.FC = () => {
                 <input
                   onInput={(event: any) => handleSearch(event.target.value)}
                   className="search-input"
+                  placeholder="search by name"
                   type="text"
                 />
               </div>

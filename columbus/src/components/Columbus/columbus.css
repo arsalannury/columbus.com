@@ -67,3 +67,7 @@
   border-bottom: 1px solid #fff;
   font-family: sans-serif;
 }
+
+.search-input::placeholder {
+  color:#fff;
+}
