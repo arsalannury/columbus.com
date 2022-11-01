@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect } from "react";
+import React, { useState, useRef, useLayoutEffect, useEffect } from "react";
 import Container from "react-bootstrap/esm/Container";
 import { Row, Col } from "react-bootstrap";
 import "./columbus.css";
@@ -12,26 +12,26 @@ import { CountryInterface } from "../../Interface/CountryInterface";
 const ColumbusPage: React.FC = () => {
   const columnRef = useRef<HTMLDivElement>(null);
   const { data, isError, isLoading } = useAllData();
-  let dataTypeAny = data as any;
-  const [dataType,setDataType] = useState<any[]>(dataTypeAny?.data);
+  let dataTypeAny = (data as any)?.data;
+  const [dataType, setDataType] = useState<any[]>([]);
+
   const handleScrollSave = (scroll: number): void => {
     localStorage.setItem("scrollTop", JSON.stringify(scroll));
   };
 
   const handleSearch = (searchedValues: string): void => {
     if (searchedValues.trim().length === 0 || searchedValues.length === 0) {
-      setDataType(dataTypeAny.data);
+      setDataType([]);
       return;
     } else {
-      const filteredDataType = dataType.filter(
+      const filteredDataType = dataTypeAny.filter(
         (country: CountryInterface) => {
           return country.name.official
-            .toLocaleLowerCase()
+            .toLowerCase()
             .includes(searchedValues.toLowerCase());
         }
       );
-      // setDataType(filteredDataType);
-      console.log(filteredDataType)
+      setDataType(filteredDataType);
     }
   };
 
@@ -57,7 +57,7 @@ const ColumbusPage: React.FC = () => {
       </div>
     );
   }
-console.log(data)
+  // console.log(data)
   return (
     <>
       <Container fluid className="columbus_container ">
@@ -85,22 +85,39 @@ console.log(data)
             ref={columnRef}
             className="column-scrollable"
           >
-            {dataType?.map((country: any, index: number) => (
-              <CardPage
-                key={index}
-                coatOfArms={country.coatOfArms}
-                officialName={country.name.official}
-                bul={country.name.nativeName}
-                languages={country.languages}
-                maps={country.maps}
-                flags={country.flags}
-                independent={country.independent}
-                translations={country.translations}
-                population={country.population}
-                region={country.region}
-                common={country.name.common}
-              />
-            ))}
+            {dataType && dataType.length === 0
+              ? dataTypeAny.map((country: any, index: number) => (
+                  <CardPage
+                    key={index}
+                    coatOfArms={country.coatOfArms}
+                    officialName={country.name.official}
+                    bul={country.name.nativeName}
+                    languages={country.languages}
+                    maps={country.maps}
+                    flags={country.flags}
+                    independent={country.independent}
+                    translations={country.translations}
+                    population={country.population}
+                    region={country.region}
+                    common={country.name.common}
+                  />
+                ))
+              : dataType.map((country: any, index: number) => (
+                  <CardPage
+                    key={index}
+                    coatOfArms={country.coatOfArms}
+                    officialName={country.name.official}
+                    bul={country.name.nativeName}
+                    languages={country.languages}
+                    maps={country.maps}
+                    flags={country.flags}
+                    independent={country.independent}
+                    translations={country.translations}
+                    population={country.population}
+                    region={country.region}
+                    common={country.name.common}
+                  />
+                ))}
           </Col>
         </Row>
       </Container>
