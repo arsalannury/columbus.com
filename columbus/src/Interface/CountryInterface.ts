@@ -31,6 +31,6 @@ export interface CountryInterface {
   subregion: string;
   timezones: [string];
   tld: string[];
-  translations: {};
+  translations: any;
   unMember: boolean;
 }

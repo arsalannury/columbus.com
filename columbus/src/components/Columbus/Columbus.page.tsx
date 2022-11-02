@@ -19,6 +19,13 @@ const ColumbusPage: React.FC = () => {
     localStorage.setItem("scrollTop", JSON.stringify(scroll));
   };
 
+  const scrollToBottom = (): void => {
+    columnRef.current?.scrollTo({ top: columnRef.current?.scrollHeight })!;
+  };
+  const scrollToTop = (): void => {
+    columnRef.current?.scrollTo({ top: 0 })!;
+  };
+
   const handleSearch = (searchedValues: string): void => {
     if (searchedValues.trim().length === 0 || searchedValues.length === 0) {
       setDataType([]);
@@ -77,7 +84,14 @@ const ColumbusPage: React.FC = () => {
               </div>
             </section>
           </Col>
-
+          <div className="position-absolute container-arrows">
+            <span onClick={scrollToTop} className="arrows">
+              <i className="bi bi-arrow-up"></i>
+            </span>
+            <span onClick={scrollToBottom} className="arrows">
+              <i className="bi bi-arrow-down"></i>
+            </span>
+          </div>
           <Col
             onScroll={(event: any) => {
               handleScrollSave(event.target.scrollTop);

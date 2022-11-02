@@ -69,5 +69,24 @@
 }
 
 .search-input::placeholder {
-  color:#fff;
+  color: #fff;
 }
+
+.container-arrows {
+  bottom: 30px;
+  z-index: 19;
+}
+
+.arrows {
+  background-color: #3160e2b2;
+  border-radius: 50%;
+  padding: 4px 10px;
+  margin: 0 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.arrows:hover {
+  background-color: #333;
+}
+

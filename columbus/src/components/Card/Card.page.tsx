@@ -19,11 +19,6 @@ const CardPage: React.FC<CardProps> = ({
   common
 }) => {
   const languageArray: any[] = languages && Object.entries(languages);
-  const handleLinkClick = () => {
-    const element = document.querySelector(".row-card");
-    console.log(element?.scrollTop);
-    
-  }
 
   return (
     <>
@@ -43,7 +38,7 @@ const CardPage: React.FC<CardProps> = ({
                   {translations.per?.official}
                 </Card.Title>
                 <div className="d-flex align-items-end justify-content-end mb-2">
-                  <a target="_blank" href={maps.googleMaps}>
+                  <a rel="noreferrer" target="_blank" href={maps.googleMaps}>
                     <img
                       className="maps-icon"
                       src="map-icon.png"

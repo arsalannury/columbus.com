@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-size: 16px;
   font-family: Kanit , Vazir;
+  scroll-behavior: smooth;
 }
 
 @font-face {
