@@ -24,7 +24,7 @@ const CardPage: React.FC<CardProps> = ({
     <>
       <Row xs={1} md={2} className="g-4 row-card">
         <Col className="w-100">
-          <Card className="flex-row mt-3 card-main rounded-0 overflow-hidden">
+          <Card className="flex-lg-row flex-md-row flex-xl-row flex-column mt-3 card-main rounded-0 overflow-hidden">
             <Link
               style={{
                 display: "flex",
@@ -47,7 +47,7 @@ const CardPage: React.FC<CardProps> = ({
               <Card.Title className="text-muted">
                 {translations.per?.official}
               </Card.Title>
-              <div className="d-flex align-items-end justify-content-end mb-2">
+              <div className="google-map-container p-0 d-flex align-items-end justify-content-end mb-2">
                 <a rel="noreferrer" target="_blank" href={maps.googleMaps}>
                   <img
                     className="maps-icon"
@@ -56,7 +56,7 @@ const CardPage: React.FC<CardProps> = ({
                   />
                 </a>
               </div>
-              <div>
+              <div className="d-none d-md-inline d-lg-inline d-xl-inline">
                 <i className="bi bi-translate text-dark"></i>
                 {languageArray !== undefined &&
                   languageArray.map((array: any[], index: number) => {
@@ -71,17 +71,17 @@ const CardPage: React.FC<CardProps> = ({
                   })}
               </div>
               <div>
-                <p className="text-muted language-parag mt-2">
+                <p className="region text-muted language-parag mt-2">
                   <i style={{ marginRight: "7px" }} className="bi bi-globe"></i>
                   {region}
                 </p>
-                <p className="text-muted independent-parag">
+                <p className="d-none d-md-block d-lg-block d-xl-block text-muted independent-parag">
                   independent:{" "}
                   <Badge pill bg={independent ? "success" : "danger"}>
                     {Helper.ConvertBooleanToYesNo(independent)}
                   </Badge>
                 </p>
-                <p className="text-muted independent-parag">
+                <p className="d-none d-md-block d-lg-block d-xl-block text-muted independent-parag">
                   population: {Helper.SortNumbers(population)}
                 </p>
               </div>

@@ -30,3 +30,18 @@
 .independent-parag {
     font-size: .9em;
 }
+
+
+/* ? responsive media queries */
+
+@media screen and (max-width:767px) {
+     .google-map-container {
+        position: absolute;
+        top: 20px;
+     }
+     .region {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+     }
+}

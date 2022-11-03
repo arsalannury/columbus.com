@@ -73,7 +73,7 @@ const ColumbusPage: React.FC = () => {
             <section className="introduce_setction">
               <h1 className="columbus-h1">Columbus.com</h1>
               <p className="main_title">search about all countries</p>
-              <div className="search-container">
+              <div className="search-container m-sm-2 m-3 m-lg-0">
                 <i className="bi bi-search"></i>
                 <input
                   onInput={(event: any) => handleSearch(event.target.value)}
