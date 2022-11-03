@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Card, Badge, Button } from "react-bootstrap";
+import { Row, Col, Card, Badge } from "react-bootstrap";
 import { Helper } from "../../helper/helper";
 import { CardProps } from "../../Interface/CardInterface";
 import { Link } from "react-router-dom";
@@ -8,7 +8,6 @@ import "./card.css";
 const CardPage: React.FC<CardProps> = ({
   coatOfArms,
   officialName,
-  bul,
   languages,
   maps,
   flags,
