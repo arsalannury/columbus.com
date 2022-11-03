@@ -1,5 +1,5 @@
 import React, { useState, useRef, useLayoutEffect, useEffect } from "react";
-import Container from "react-bootstrap/esm/Container";
+import {Container} from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
 import "./columbus.css";
 import CardPage from "../Card/Card.page";
@@ -64,7 +64,7 @@ const ColumbusPage: React.FC = () => {
       </div>
     );
   }
-  // console.log(data)
+  console.log(data)
   return (
     <>
       <Container fluid className="columbus_container ">
