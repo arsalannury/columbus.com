@@ -27,10 +27,10 @@ export abstract class Helper {
     switch (parameter) {
       case true:
         return "Yes";
-        break;
       case false:
         return "No";
-        break;
+      default:
+        return "---"
     }
   };
 

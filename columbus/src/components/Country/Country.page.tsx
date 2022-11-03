@@ -9,6 +9,7 @@ import CapitalFramerMotion from "../CountryDetails/Capital/Capital.framer.motion
 import GeographyFramerMotion from "../CountryDetails/Geography/Geography.framer.motion";
 import PublicFramerMotion from "../CountryDetails/Public/Public.framer.motion";
 import PaperComponent from "../CountryDetails/Paper/Paper.component";
+import NONEIMAGE from "../../images/there-is-no-image.png";
 
 const CountryPage: React.FC = () => {
   const { id } = useParams();
@@ -38,7 +39,11 @@ const CountryPage: React.FC = () => {
             <Row>
               <Col className="d-flex align-items-center justify-content-center">
                 <Image
-                  src={dataArray?.flags.png}
+                  src={
+                    dataArray && dataArray.flags.png
+                      ? dataArray.flags.png
+                      : NONEIMAGE
+                  }
                   className="country-flag"
                   alt="country-flag.png"
                 />

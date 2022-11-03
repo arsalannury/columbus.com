@@ -12,6 +12,7 @@ import FIRST_LAYER from "../../../images/blob-three.svg";
 import PEOPLE from "../../../images/people.png";
 import SEDAN from "../../../images/sedan.png";
 import PROFIT from "../../../images/profit.png";
+import NONEIMAGE from '../../../images/there-is-no-image.png';
 import CURRENCY from "../../../images/currency.png";
 import { Col, Row, Image } from "react-bootstrap";
 import TranslationsComponent from "../Translations/Translations.component";
@@ -31,7 +32,7 @@ const PaperComponent: React.FC<PaperInterface<any>> = ({
   demonyms,
   currencies,
   gini,
-  translations
+  translations,
 }) => {
   const demonymsToArray = demonyms && Object.values(demonyms);
   const currenciesToArray = currencies && Object.values(currencies);
@@ -41,7 +42,7 @@ const PaperComponent: React.FC<PaperInterface<any>> = ({
       <Row>
         <Col lg={6} sm={12} xs={12}>
           <Row className="border-bottom">
-            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}>
+            <Col md={6} xs={12} sm={6} className={GLOBAL_CLASS}>
               <Image
                 loading="lazy"
                 src={AREA_ICON}
@@ -54,7 +55,7 @@ const PaperComponent: React.FC<PaperInterface<any>> = ({
                 {area && Helper.SortNumbers(area)} km
               </span>
             </Col>
-            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}>
+            <Col md={6} xs={12} sm={6} className={GLOBAL_CLASS}>
               <Image
                 loading="lazy"
                 src={UNMEMBER_ICON}
@@ -64,10 +65,11 @@ const PaperComponent: React.FC<PaperInterface<any>> = ({
               />
               <span className="text-secondary global-text">
                 <span className={TEXT_CLASS.spans}>unMember:</span>{" "}
-                {unMember && Helper.ConvertBooleanToYesNo(unMember)}
+                {unMember !== undefined &&
+                  Helper.ConvertBooleanToYesNo(unMember)}
               </span>
             </Col>
-            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}>
+            <Col md={6} xs={12} sm={6} className={GLOBAL_CLASS}>
               <Image
                 loading="lazy"
                 src={COUNTRY_ICON}
@@ -79,7 +81,7 @@ const PaperComponent: React.FC<PaperInterface<any>> = ({
                 <span className={TEXT_CLASS.spans}>name: </span> {common}
               </span>
             </Col>
-            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}>
+            <Col md={6} xs={12} sm={6} className={GLOBAL_CLASS}>
               <Image
                 loading="lazy"
                 src={FIFA_ICON}
@@ -93,7 +95,7 @@ const PaperComponent: React.FC<PaperInterface<any>> = ({
             </Col>
           </Row>
           <Row>
-            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}>
+            <Col md={6} xs={12} sm={6} className={GLOBAL_CLASS}>
               <Image
                 loading="lazy"
                 src={PEOPLE}
@@ -109,7 +111,7 @@ const PaperComponent: React.FC<PaperInterface<any>> = ({
                   </span>
                 ))}
             </Col>
-            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}>
+            <Col md={6} xs={12} sm={6} className={GLOBAL_CLASS}>
               <Image
                 loading="lazy"
                 src={CURRENCY}
@@ -125,7 +127,7 @@ const PaperComponent: React.FC<PaperInterface<any>> = ({
                   </span>
                 ))}
             </Col>
-            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}>
+            <Col md={6} xs={12} sm={6} className={GLOBAL_CLASS}>
               <Image
                 loading="lazy"
                 src={SEDAN}
@@ -140,7 +142,7 @@ const PaperComponent: React.FC<PaperInterface<any>> = ({
                 </span>
               </p>
             </Col>
-            <Col md={6} xs={6} sm={6} className={GLOBAL_CLASS}>
+            <Col md={6} xs={12} sm={6} className={GLOBAL_CLASS}>
               <Image
                 loading="lazy"
                 src={PROFIT}
@@ -164,7 +166,7 @@ const PaperComponent: React.FC<PaperInterface<any>> = ({
           lg={6}
           sm={12}
           xs={12}
-          className="d-flex align-items-center justify-content-center p-md-0 p-sm-5 p-5 position-relative"
+          className="coat-layers-container d-flex align-items-center justify-content-center p-lg-0 p-sm-5 p-5 position-relative"
         >
           <Image
             loading="lazy"
@@ -182,7 +184,7 @@ const PaperComponent: React.FC<PaperInterface<any>> = ({
             className="first-layer position-absolute"
           />
           <Image
-            src={coatOfArms?.png}
+            src={coatOfArms && coatOfArms.png ? coatOfArms.png : NONEIMAGE}
             className="country-coatOfArms"
             alt="country-coatOfArms.png"
           />

@@ -23,3 +23,24 @@
   font-size: 0.8em;
 }
 
+/* ? responsive media queries */
+
+@media screen and (max-width: 490px) {
+  .country-container-blur {
+    backdrop-filter: unset;
+    -webkit-backdrop-filter: unset;
+    background-color: unset;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .country-flag {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 991px) and (min-width:768px) {
+  .coat-layers-container {
+    margin-top: 50px;
+  }
+}

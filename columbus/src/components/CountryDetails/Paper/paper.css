@@ -53,3 +53,24 @@
       transform: rotateZ(360deg);
     }
   }
+
+  /* ? responsive media queries */
+
+  @media screen and (max-width: 481px) {
+    .country-flag {
+      width: 200px;
+    }
+
+    .first-layer {
+      width: 210px;
+    }
+    .middle-layer {
+      width: 220px;
+    }
+    .last-layer {
+      width: 240px;
+    }
+    .country-coatOfArms {
+      width: 180px;
+    }
+  }
