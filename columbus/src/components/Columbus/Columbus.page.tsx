@@ -79,16 +79,17 @@ const ColumbusPage: React.FC = () => {
                   onInput={(event: any) => handleSearch(event.target.value)}
                   className="search-input"
                   placeholder="search by name"
+                  aria-label="search-input"
                   type="text"
                 />
               </div>
             </section>
           </Col>
           <div className="position-absolute container-arrows">
-            <span onClick={scrollToTop} className="arrows">
+            <span data-testid="scroll-spans" onClick={scrollToTop} className="arrows">
               <i className="bi bi-arrow-up"></i>
             </span>
-            <span onClick={scrollToBottom} className="arrows">
+            <span data-testid="scroll-spans" onClick={scrollToBottom} className="arrows">
               <i className="bi bi-arrow-down"></i>
             </span>
           </div>

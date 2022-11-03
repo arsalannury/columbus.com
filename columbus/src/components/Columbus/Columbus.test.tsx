@@ -26,6 +26,12 @@ describe("nodes are in document",() => {
 
                 const paragElement = screen.getByText("search about all countries");
                 expect(paragElement).toBeInTheDocument();
+
+                const searchInputElement = screen.getByRole("textbox");
+                expect(searchInputElement).toBeInTheDocument();
+
+                const scrollBtn = screen.getAllByTestId('scroll-spans');
+                expect(scrollBtn).toBeInTheDocument();
             }, 3000);
     })
 })
