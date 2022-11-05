@@ -35,6 +35,7 @@ const CardPage: React.FC<CardProps> = ({
             >
               <Card.Img
                 variant="top"
+                alt="coat-of-arm"
                 src={coatOfArms.png ? coatOfArms.png : flags?.png}
                 loading="lazy"
                 className="card-img"
@@ -47,11 +48,11 @@ const CardPage: React.FC<CardProps> = ({
                 {translations.per?.official}
               </Card.Title>
               <div className="google-map-container p-0 d-flex align-items-end justify-content-end mb-2">
-                <a rel="noreferrer" target="_blank" href={maps.googleMaps}>
+                <a rel="noreferrer"  target="_blank" href={maps.googleMaps}>
                   <img
                     className="maps-icon"
                     src="map-icon.png"
-                    alt="icon-map-png"
+                    alt="location"
                   />
                 </a>
               </div>
@@ -62,6 +63,7 @@ const CardPage: React.FC<CardProps> = ({
                     return (
                       <span
                         key={index}
+                        title="language-span-element"
                         className="text-muted language-parag px-2"
                       >
                         {array[1]}
@@ -76,7 +78,7 @@ const CardPage: React.FC<CardProps> = ({
                 </p>
                 <p className="d-none d-md-block d-lg-block d-xl-block text-muted independent-parag">
                   independent:{" "}
-                  <Badge pill bg={independent ? "success" : "danger"}>
+                  <Badge title="badge-title" pill bg={independent ? "success" : "danger"}>
                     {Helper.ConvertBooleanToYesNo(independent)}
                   </Badge>
                 </p>
