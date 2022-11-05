@@ -22,7 +22,7 @@ const CountryPage: React.FC = () => {
   if (isLoading) {
     return (
       <div className="d-flex align-items-center justify-content-center w-100 h-100">
-        <Spinner animation="border" variant="light" />
+        <Spinner data-testid="loader" animation="border" variant="light" />
       </div>
     );
   }
