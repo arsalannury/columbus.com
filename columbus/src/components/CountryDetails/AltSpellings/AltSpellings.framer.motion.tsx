@@ -38,7 +38,7 @@ const AltSpellingsFramerMotion: React.FC<AltSpellingsInterface> = ({
                 onClick={() => setSelectedId(undefined)}
                 className="position-absolute bg-secondary border-0 motion-btn-close"
               >
-                <i className="text-white bi bi-x"></i>
+                <i data-testid="close-icon" className="text-white bi bi-x"></i>
               </motion.button>
               <motion.p className="text-center text-dark m-0 p-2">
                 Alt Spellings country
