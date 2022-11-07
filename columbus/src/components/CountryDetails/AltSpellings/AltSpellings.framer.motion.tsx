@@ -14,6 +14,7 @@ const AltSpellingsFramerMotion: React.FC<AltSpellingsInterface> = ({
       <Col className="p-4 d-flex align-items-center justify-content-center">
         <motion.div
           className="motion-div-main shadow-lg bg-white d-flex align-items-center justify-content-center"
+          data-testid="motion-container"
           layoutId="alt-spellings"
           layout
           onClick={() => setSelectedId("alt-spellings")}
@@ -40,9 +41,7 @@ const AltSpellingsFramerMotion: React.FC<AltSpellingsInterface> = ({
               >
                 <i data-testid="close-icon" className="text-white bi bi-x"></i>
               </motion.button>
-              <motion.p className="text-center text-dark m-0 p-2">
-                Alt Spellings country
-              </motion.p>
+              <motion.p data-testid="spellings-countries" className="text-center text-dark m-0 p-2">Alt Spellings country</motion.p>
               <motion.hr className="border border-dark text-dark m-0" />
               <motion.ul>
                 {altSpellings?.map((value, index) => (
