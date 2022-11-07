@@ -20,7 +20,7 @@ const QueryClientProvider: React.FC<QueryClientProviderPropsWithChildren> =
 
 describe("country component tests", () => {
   const client = new QueryClient();
-  it("should render elements correctly", () => {
+  it("should render elements correctly", async () => {
     render(
       <QueryClientProvider client={client}>
         <Router>
@@ -29,25 +29,23 @@ describe("country component tests", () => {
       </QueryClientProvider>
     );
 
-    const loaderElement = screen.getByTestId("loader");
+    const loaderElement = await screen.findByTestId("loader");
     expect(loaderElement).toBeInTheDocument();
 
-    setTimeout(() => {
-      const flagImageElement = screen.getByAltText("country-flag.png");
-      expect(flagImageElement).toBeInTheDocument();
+      // const flagImageElement = await screen.findByRole("img");
+      // expect(flagImageElement).toBeInTheDocument();
      
-     const altSpellingsComponent = screen.getByTestId(/AltSpellings/);
+     const altSpellingsComponent = await screen.findByTestId(/AltSpellings/);
      expect(altSpellingsComponent).toBeInTheDocument();
 
-     const capitalComponent = screen.getByTestId(/Capital/);
+     const capitalComponent = await screen.findByTestId(/Capital/);
      expect(capitalComponent).toBeInTheDocument();
 
-     const publicComponent = screen.getByTestId(/Public/);
+     const publicComponent = await screen.findByTestId(/Public/);
      expect(publicComponent).toBeInTheDocument();
 
-     const geographyComponent = screen.getByTestId(/Geography/);
+     const geographyComponent = await screen.findByTestId(/Geography/);
      expect(geographyComponent).toBeInTheDocument();
 
-    }, 3000);
   });
 });

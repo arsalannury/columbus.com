@@ -2,8 +2,7 @@ import {
   render,
   screen,
   fireEvent,
-  waitFor,
-  findByRole,
+  waitFor
 } from "@testing-library/react";
 import AltSpellingsFramerMotion from "./AltSpellings.framer.motion";
 
